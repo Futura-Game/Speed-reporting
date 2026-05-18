@@ -34,7 +34,7 @@ $role = AuthService::getRole()->getId();
                     <li>
                         <a href="/">
                             <i class="bx bx-home"></i>
-                            <span class="text">Dashboard</span>
+                            <span class="text">Home</span>
                         </a>
                     </li>
                     <?php if ($role == 1): ?>
@@ -95,13 +95,6 @@ $role = AuthService::getRole()->getId();
                     <a href="#" class="ajax-link" id="help-button">
                         <i class='bx bx-question-mark'></i>
                         <span class="text">Aide</span>
-                    </a>
-                </li>
-                <!-- Easter Egg -->
-                <li>
-                    <a href="#" id="easter-egg-button" class="easter-trigger" title="Activer le robot secret">
-                        <p>🤖</p>
-                        <span class="text">Pas touche !</span>
                     </a>
                 </li>
             </ul>

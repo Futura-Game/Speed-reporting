@@ -101,7 +101,7 @@ use Src\Models\Enums\Status\WorkStatus;
                         </td>
 
                         <td>
-                            <?php $lastWork = end($group['works']); ?>
+                            <?php $lastWork = reset($group['works']); ?>
                             <div class="tag <?= WorkStatus::getColor($lastWork->getStatus()) ?>">
                                 <?= $lastWork->getStatus(fr: true); ?>
                             </div>
@@ -195,14 +195,18 @@ use Src\Models\Enums\Status\WorkStatus;
                     <?php endforeach; ?>
                 </select>
             </div>
-            <input type="hidden" name="work_id" value="<?= $workForEdit->getId(); ?>">
+                <?php foreach ($group['works'] as $w): ?>
+                    <input type="hidden" name="work_ids[]" value="<?= $w->getId(); ?>">
+                <?php endforeach; ?>
             <input type="hidden" name="page" value="<?= $pages['current_page']; ?>">
             <?php require __DIR__ . '/../modals/edit/_bottom.html.php'; ?>
 
             <?php
             require __DIR__ . '/../modals/delete/_top.html.php';
-            ?>
-            <input type="hidden" name="work_id" value="<?= $workForEdit->getId(); ?>">
+                            ?>
+                <?php foreach ($group['works'] as $w): ?>
+                    <input type="hidden" name="work_ids[]" value="<?= $w->getId(); ?>">
+                <?php endforeach; ?>
             <input type="hidden" name="page" value="<?= $pages['current_page']; ?>">
             <?php require __DIR__ . '/../modals/delete/_bottom.html.php'; ?>
         <?php endforeach; ?>

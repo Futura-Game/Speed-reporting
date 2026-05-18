@@ -164,19 +164,37 @@ class WorkController extends BaseController
             ErrorKernel::throwHttpError(403, "Token CSRF invalide.");
         }
 
-        if (!$this::requestIsAjax()) {
-            ErrorKernel::throwHttpError(403, "Accès interdit.");
+        // 1. On récupère le tableau d'IDs
+        $work_ids = $_POST['work_ids'] ?? null;
+
+        if (!$work_ids && isset($_POST['work_id'])) {
+            $work_ids = [$_POST['work_id']];
         }
 
-        $work_id = $_POST['work_id'] ?? null;
-        if (!$work_id) {
+        if (!$work_ids) {
             ErrorKernel::throwHttpError(400, "L'ID du travail est requis.");
         }
 
-        $work_raw = (new WorkManager())->find($work_id);
-        if (!$work_raw) {
-            ErrorKernel::throwHttpError(404, "Travail non trouvé.");
+        // 2. INITIALISATION DU MANAGER (C'est ce qui manquait !)
+        $workManager = new WorkManager();
+
+        // 3. Récupération et vérification du statut
+        $status = $_POST['work_status'] ?? null;
+        if (!$status || !in_array($status, WorkStatus::getValues())) {
+            ErrorKernel::throwHttpError(400, "Le statut du travail doit être valide.");
         }
+
+        // 4. On appelle changeWorkStatus sur notre nouvelle instance $workManager
+        try {
+            $workManager->changeWorkStatus((array)$work_ids, $status);
+        } catch (\Exception $e) {
+            ErrorKernel::throwHttpError(500, "Erreur lors de la mise à jour : " . $e->getMessage());
+        }
+
+        // Redirection
+        $page = $_POST['page'] ?? 1;
+        header("Location: /heures?page=" . $page);
+        exit;
 
         $work = new Work($work_raw);
 

@@ -14,7 +14,7 @@ foreach ($userWeekWork_data as $week) {
     $colors[] = lerpColor($colorMin, $colorMax, $t);
 }
 
-$labels = array_map(fn($w) => "{$w['work_year']} s {$w['work_week']}", $userWeekWork_data);
+$labels = array_map(fn($w) => "S N° {$w['work_week']}", $userWeekWork_data);
 $dataPoints = array_column($userWeekWork_data, 'total_hours');
 $backgroundColors = array_map(fn($c) => "rgba({$c[0]}, {$c[1]}, {$c[2]}, 0.2)", $colors);
 $borderColors = array_map(fn($c) => "rgba({$c[0]}, {$c[1]}, {$c[2]}, 1)", $colors);
@@ -22,7 +22,7 @@ $borderColors = array_map(fn($c) => "rgba({$c[0]}, {$c[1]}, {$c[2]}, 1)", $color
 
 <div class="card" data-card="userWeekWork">
     <div class="card-container">
-        <h2>Volume de travail par semaines</h2>
+        <h2>Volume de travail hebdomadaire</h2>
         <div>
             <canvas id="weekWork"></canvas>
         </div>

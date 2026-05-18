@@ -24,7 +24,7 @@ foreach ($weekWork_data as $week) {
 
 <div class="card" data-card="weekWork">
     <div class="card-container">
-        <h2>Volume de travail par semaines</h2>
+        <h2>Volume de travail hebdomadaire</h2>
         <div>
             <canvas id="weekWork"></canvas>
         </div>
@@ -36,7 +36,7 @@ foreach ($weekWork_data as $week) {
                 data: {
                     labels: [
                         <?php foreach ($weekWork_data as $week): ?>
-                            '<?= $week['work_year'] ?> s <?= $week['work_week'] ?>',
+                            'S N°<?= $week['work_week'] ?>',
                         <?php endforeach; ?>
                     ],
                     datasets: [{

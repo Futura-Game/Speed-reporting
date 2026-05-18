@@ -13,6 +13,15 @@ require_once __DIR__ . '/partials/_top.html.php';
 include_once __DIR__ . '/partials/_sidebar.html.php';
 include_once __DIR__ . '/partials/_breadcrumb.html.php';
 
+/*
+<div class="input-menu">
+    <label>Projets importants <input type="checkbox" data-target="importantProjects" checked></label>
+</div>
+
+<div class="input-menu">
+    <label>En congés <input type="checkbox" data-target="haveBreakUser" checked></label>
+</div>
+*/
 ?>
 
 <section class="content">
@@ -24,7 +33,7 @@ include_once __DIR__ . '/partials/_breadcrumb.html.php';
         <div id="cardMenu" class="card-menu hidden">
             <?php if (AuthService::isAdmin()) { ?>
                 <div class="input-menu">
-                    <label>Saisie à valider <input type="checkbox" data-target="workToValidate" checked></label>
+                    <label>Heures à valider <input type="checkbox" data-target="workToValidate" checked></label>
                 </div>
                 <div class="input-menu">
                     <label>Volume hebdo <input type="checkbox" data-target="weekWork" checked></label>
@@ -33,13 +42,7 @@ include_once __DIR__ . '/partials/_breadcrumb.html.php';
                     <label>Statuts projets <input type="checkbox" data-target="projectStatus" checked></label>
                 </div>
                 <div class="input-menu">
-                    <label>Projets importants <input type="checkbox" data-target="importantProjects" checked></label>
-                </div>
-                <div class="input-menu">
                     <label>Projets par client <input type="checkbox" data-target="projectsByClient" checked></label>
-                </div>
-                <div class="input-menu">
-                    <label>En congés <input type="checkbox" data-target="haveBreakUser" checked></label>
                 </div>
             <?php } else { ?>
                 <div class="input-menu">
@@ -70,15 +73,15 @@ include_once __DIR__ . '/partials/_breadcrumb.html.php';
         if (isset($data['projectStatus_data']) && !empty($data['projectStatus_data'])) {
             require_once __DIR__ . '/partials/cards/_projectStatus.html.php';
         }
-        if (isset($data['importantProjects']) && !empty($data['importantProjects'])) {
+        /*if (isset($data['importantProjects']) && !empty($data['importantProjects'])) {
             require_once __DIR__ . '/partials/cards/_importantProjects.html.php';
-        }
+        }*/
         if (isset($data['projectsByClientType']) && isset($data['projectsByClient']) && !empty($data['projectsByClientType']) && !empty($data['projectsByClient'])) {
             require_once __DIR__ . '/partials/cards/_projectsByClient.html.php';
         }
-        if (isset($data['haveBreakUser']) && !empty($data['haveBreakUser'])) {
+        /*if (isset($data['haveBreakUser']) && !empty($data['haveBreakUser'])) {
             require_once __DIR__ . '/partials/cards/_haveBreakUser.html.php';
-        }
+        }*/
         if (isset($data['userWeekWork']) && !empty($data['userWeekWork'])) {
             require_once __DIR__ . '/partials/cards/_userWeekWork.html.php';
         }
