@@ -80,7 +80,7 @@ use Src\Models\Enums\Status\WorkStatus;
         <form id="validate-multiple-form" class="hidden" method="POST" action="/heures/valider">
             <?php CsrfService::insertToken(); ?>
         </form>
-        <button id="validate-multiple" class="button success" disabled>
+        <button id="validate-multiple" class="button success" enabled>
             Valider la sélection
         </button>
     </table>

@@ -99,9 +99,10 @@ class ProjectManager extends BaseManager
     public function getProjectProgression(int $projectId): array
     {
         $query = "SELECT project_id, project_name, project_start, project_end, project_realend, project_resource,
-                SUM(work_count) AS total_worked_hours
+                SUM(table_work.work_count) AS total_worked_hours
             FROM table_project
-            LEFT JOIN table_work ON table_work.work_project = table_project.project_id
+            LEFT JOIN table_work ON table_work.work_project = table_project.project_id 
+                                AND table_work.work_status = 'confirmé'
             WHERE project_id = :projectId
             GROUP BY project_id";
 
