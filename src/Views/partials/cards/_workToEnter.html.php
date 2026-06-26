@@ -24,7 +24,7 @@ $color = getStatusColor($day);
         <p>Vous devez saisir et valider vos heures cette semaine.</p>
 
         <div class="progress-bar-container">
-            <div class="progress-bar" style="width: <?= $progress ?>%; background-color: <?= $color ?>;"></div>
+            <div class="progress-bar" style="width: <?= $progress ?>%; background-color: var(--color-primary);"></div>
         </div>
 
         <p>

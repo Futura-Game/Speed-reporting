@@ -15,7 +15,6 @@ include_once __DIR__ . '/../partials/_breadcrumb.html.php';
 ?>
 
 <section class="content">
-    <h1>Utilisateurs</h1>
     <div id="table-container">
         <?php
         include_once __DIR__ . '/../partials/tables/_user.html.php';

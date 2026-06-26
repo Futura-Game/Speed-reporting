@@ -2,15 +2,19 @@
 $projectsStatus_data = $data['projectStatus_data'] ?? [];
 
 $labelMapping = [
-    'termine'   => 'Validé',
-    'en_cours'  => 'En cours',
-    'annule'    => 'Annulé'
+    'en_cours'   => 'En cours',
+    'en_pause'   => 'En pause',
+    'en_urgence' => 'En urgence',
+    'termine'    => 'Validé',
+    'annule'     => 'Annulé'
 ];
 
 $statusMap = [
-    'Validé' => 0,
-    'En cours' => 0,
-    'Annulé' => 0
+    'En cours'   => 0,
+    'En pause'   => 0,
+    'En urgence' => 0,
+    'Validé'     => 0,
+    'Annulé'     => 0
 ];
 
 foreach ($projectsStatus_data as $status) {
@@ -24,7 +28,7 @@ foreach ($projectsStatus_data as $status) {
 
 <div class="card" data-card="projectStatus">
     <div class="card-container">
-        <h2>Status des projets</h2>
+        <h2>Statuts des projets</h2>
         <div>
             <canvas id="projectStatus"></canvas>
         </div>
@@ -32,24 +36,30 @@ foreach ($projectsStatus_data as $status) {
             document.addEventListener('DOMContentLoaded', function() {
                 const ctx = document.getElementById('projectStatus').getContext('2d');
                 const projectStatusData = {
-                    labels: ['Validé', 'En cours', 'Annulé'],
+                    labels: ['En cours', 'En pause', 'En urgence', 'Validé', 'Annulé'],
                     datasets: [{
                         label: 'Nombre de projets',
                         data: [
-                            <?= $statusMap['Validé'] ?>,
                             <?= $statusMap['En cours'] ?>,
+                            <?= $statusMap['En pause'] ?>,
+                            <?= $statusMap['En urgence'] ?>,
+                            <?= $statusMap['Validé'] ?>,
                             <?= $statusMap['Annulé'] ?>
                         ],
                         backgroundColor: [
-                            'rgba(255, 127, 80, 0.2)',
-                            'rgba(8, 29, 217, 0.2)',
-                            'rgba(73, 76, 80, 0.2)'
+                            'rgba(255, 187, 0, 0.2)',   // En cours (Jaune)
+                            'rgba(73, 76, 80, 0.2)',    // En pause (Gris)
+                            'rgba(255, 127, 80, 0.2)',  // En urgence (Orange)
+                            'rgba(40, 167, 69, 0.2)',   // Validé (Vert)
+                            'rgba(225, 5, 30, 0.2)'     // Annulé (Rouge)
                         ],
                         borderColor: [
-                            'rgba(255, 127, 80, 0.4)',
-                            'rgba(8, 29, 217, 0.4)',
-                            'rgba(73, 76, 80, 0.4)'
-                        ],
+                            'rgba(255, 187, 0, 0.4)',   // En cours
+                            'rgba(73, 76, 80, 0.4)',    // En pause
+                            'rgba(255, 127, 80, 0.4)',  // En urgence
+                            'rgba(40, 167, 69, 0.4)',   // Validé
+                            'rgba(225, 5, 30, 0.4)'     // Annulé
+                        ], 
                         borderWidth: 1
                     }]
                 };

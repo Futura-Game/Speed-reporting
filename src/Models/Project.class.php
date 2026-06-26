@@ -188,8 +188,8 @@ class Project extends BaseModel
         // 1. On nettoie la valeur (minuscules et retrait des espaces)
         $cleanValue = strtolower(trim((string)$value));
 
-        // 2. On vérifie si la valeur fait partie des 3 autorisées par ta BDD
-        $allowed = ['en_cours', 'termine', 'annule'];
+        // 2. On vérifie si la valeur fait partie des 5 autorisées par ta BDD
+        $allowed = ['en_cours', 'en_pause', 'en_urgence', 'termine', 'annule'];
 
         if (in_array($cleanValue, $allowed)) {
             $this->status = $cleanValue;

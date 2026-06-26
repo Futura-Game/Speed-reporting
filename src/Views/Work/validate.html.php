@@ -15,10 +15,7 @@ include_once __DIR__ . '/../partials/_breadcrumb.html.php';
 ?>
 
 <section class="content">
-    <h1>Horaires</h1>
-
     <?php
-
     require_once __DIR__ . '/../partials/tables/_validate.html.php';
     ?>
 

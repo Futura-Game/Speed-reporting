@@ -5,8 +5,11 @@ $projectsByClient = $data['projectsByClient'] ?? [];
 $projectsByClientType = array_values(array_filter($projectsByClientType, fn($item) => !empty($item['client_type'])));
 $projectsByClient = array_values(array_filter($projectsByClient, fn($item) => !empty($item['client_name'])));
 
-$colorMax = [255, 127, 80];
-$colorMin = [63, 49, 44];
+// #007ae6 - Un bleu vif et lumineux
+$colorMax = [0, 122, 230]; 
+
+// #081DD9 - Un bleu royal très vif et saturé
+$colorMin = [8, 29, 217];
 
 function generateColors(array $data, string $valueKey, array $colorMin, array $colorMax)
 {

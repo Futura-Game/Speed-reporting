@@ -163,6 +163,12 @@ $router->addRoute('/delete/projets', 'POST', function () {
     (new ProjectController())->deleteProject();
 }, [ADMIN]);
 
+// PROJETS (USER)
+$router->addRoute('/mes-projets', 'GET', function () {
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/Mes-Project/index.html.php'; 
+    showMesProjectPage(); 
+}, [USER]);
+
 // CLIENTS (ADMIN)
 $router->addRoute('/clients', 'GET', function () {
     (new ClientController())->getIndex();
@@ -176,6 +182,18 @@ $router->addRoute('/update/clients', 'POST', function () {
 $router->addRoute('/delete/clients', 'POST', function () {
     (new ClientController())->deleteClient();
 }, [ADMIN]);
+
+// PLANNING (ADMIN)
+$router->addRoute('/planning', 'GET', function () {
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/Planning/index.html.php'; 
+    showPlanningPage(); 
+}, [ADMIN]);
+
+// PLANNING (USER)
+$router->addRoute('/mon-planning', 'GET', function () {
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/Mon-Planning/index.html.php'; 
+    showMonPlanningPage(); 
+}, [USER]);
 
 // PREFERENCES (USER, ADMIN)
 $router->addRoute('/preferences', 'POST', function () {

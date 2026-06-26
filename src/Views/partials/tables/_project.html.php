@@ -94,14 +94,14 @@ use Src\Models\Enums\Status\ProjectStatus;
                         <td>
                             <?php
                             $progress = (int) $row_data['progression']['progression'];
-                            $color = '#28a745';
+                            $color = '#007ae6';
                             ?>
                             <div class="progress-bar-container">
                                 <div class="progress-bar" style="width: <?= $progress ?>%; background-color: <?= $color ?>;">
                                 </div>
                             </div>
-                            <small><?= $progress ?>%</small><br>
-                            <small><?= $row_data['progression']['workedHours'] ?>h / <?= $row_data['progression']['resourceHours'] ?>h</small>
+                            <small><?= $progress ?>%</small>
+                            <small>(<?= $row_data['progression']['workedHours'] ?>h / <?= $row_data['progression']['resourceHours'] ?>h)</small>
                         </td>
                         <td class="action">
                             <a href="#" class="button primary minimal" data-modal="read_<?= $id ?>"><i class='bx bx-show'></i>
@@ -140,8 +140,8 @@ use Src\Models\Enums\Status\ProjectStatus;
             <div class="progress-bar-container" style="margin-bottom: 0.25rem;">
                 <div class="progress-bar" style="width: <?= $progress ?>%; background-color: <?= $color ?>;"></div>
             </div>
-            <small><?= $progress ?>%</small><br>
-            <small><?= $worked ?>h / <?= $total ?>h</small>
+            <small><?= $progress ?>%</small>
+            <small>(<?= $worked ?>h / <?= $total ?>h)</small>
             <p><strong>Départ prévu :</strong> <?= $row_data['project']->getStart(); ?></p>
             <p><strong>Fin prévue :</strong> <?= $row_data['project']->getEnd(); ?></p>
             <p><strong>Fin réelle :</strong> <?= $row_data['project']->getRealEnd() ?: 'Non renseignée'; ?></p>

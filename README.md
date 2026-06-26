@@ -127,49 +127,49 @@ Les formulaires de l'application sont protégés contre les attaques CSRF (Cross
 
 ### Accès : Tous
 
-| URL              | Méthode | Description                               | Paramètres         | Contrôleur |
-| ---------------- | -------- | ----------------------------------------- | ------------------- | ----------- |
-| `/connexion`   | GET/POST | Page de connexion                         | error,<br />message | Auth        |
-| `/deconnexion` | GET      | Déconnexion                              |                     | Auth        |
-| `/mdp-oublie`  | GET/POST | Page de réinitialisation de mot de passe |                     | Auth        |
+| URL              | Méthode  | Description                              | Paramètres          | Contrôleur  |
+| ---------------- | -------- | ---------------------------------------- | ------------------- | ----------- |
+| `/connexion`     | GET/POST | Page de connexion                        | error,<br />message | Auth        |
+| `/deconnexion`   | GET      | Déconnexion                              |                     | Auth        |
+| `/mdp-oublie`    | GET/POST | Page de réinitialisation de mot de passe |                     | Auth        |
 
 ### Accès : Authentifié
 
-| URL            | Méthode | Description                      | Paramètres | Contrôleur |
+| URL            | Méthode  | Description                      | Paramètres  | Contrôleur  |
 | -------------- | -------- | -------------------------------- | ----------- | ----------- |
-| `/dashboard` | GET      | Tableau de bord de l'utilisateur |             | Dashboard   |
+| `/dashboard`   | GET      | Tableau de bord de l'utilisateur |             | Dashboard   |
 
 ### Accès : User
 
-| URL                     | Méthode | Description                     | Paramètres      | Contrôleur |
+| URL                     | Méthode  | Description                     | Paramètres       | Contrôleur  |
 | ----------------------- | -------- | ------------------------------- | ---------------- | ----------- |
-| `/mes-heures`         | GET/POST | Heures de l'utilisateur         | year,<br />month | Work        |
-| `/update/mes-heures`  | POST     | Mettre une entrée à jour      |                  | Work        |
-| `/delete/mes-heures`  | POST     | Supprimer une entrée           |                  | Work        |
-| `/valider/mes-heures` | POST     | Valider les heures en brouillon |                  | Work        |
+| `/mes-heures`           | GET/POST | Heures de l'utilisateur         | year,<br />month | Work        |
+| `/update/mes-heures`    | POST     | Mettre une entrée à jour        |                  | Work        |
+| `/delete/mes-heures`    | POST     | Supprimer une entrée            |                  | Work        |
+| `/valider/mes-heures`   | POST     | Valider les heures en brouillon |                  | Work        |
 
 ### Accès : Admin
 
-| URL                      | Méthode | Description                                  | Paramètres                              | Contrôleur |
-| ------------------------ | -------- | -------------------------------------------- | ---------------------------------------- | ----------- |
-| `/heures`              | GET      | Liste des heures enregistrées               | year,<br />month,<br />page,<br />search | Work        |
-| `/update/heures`       | POST     | Mettre une entrée à jour                   |                                          | Work        |
-| `/delete/heures`       | POST     | Supprimer une entrée                        |                                          | Work        |
-| `/heures/valider`      | GET/POST | Gestion et validation des heures confirmées | search,<br />page                        | Work        |
+| URL                    | Méthode  | Description                                  | Paramètres                               | Contrôleur  |
+| ---------------------- | -------- | -------------------------------------------- | ---------------------------------------- | ----------- |
+| `/heures`              | GET      | Liste des heures enregistrées                | year,<br />month,<br />page,<br />search | Work        |
+| `/update/heures`       | POST     | Mettre une entrée à jour                     |                                          | Work        |
+| `/delete/heures`       | POST     | Supprimer une entrée                         |                                          | Work        |
+| `/heures/valider`      | GET/POST | Gestion et validation des heures confirmées  | search,<br />page                        | Work        |
 | `/utilisateurs`        | GET/POST | Liste des utilisateurs                       | search,<br />page                        | User        |
-| `/update/utilisateurs` | POST     | Mettre une entrée à jour                   |                                          | User        |
-| `/delete/utilisateurs` | POST     | Supprimer une entrée                        |                                          | User        |
+| `/update/utilisateurs` | POST     | Mettre une entrée à jour                     |                                          | User        |
+| `/delete/utilisateurs` | POST     | Supprimer une entrée                         |                                          | User        |
 | `/projets`             | GET/POST | Liste des projets                            | search,<br />page                        | Project     |
-| `/update/projets`      | POST     | Mettre une entrée à jour                   |                                          | Project     |
-| `/delete/projets`      | POST     | Supprimer une entrée                        |                                          | Project     |
+| `/update/projets`      | POST     | Mettre une entrée à jour                     |                                          | Project     |
+| `/delete/projets`      | POST     | Supprimer une entrée                         |                                          | Project     |
 | `/clients`             | GET/POST | Liste des clients                            | search,<br />page                        | Client      |
-| `/update/clients`      | POST     | Mettre une entrée à jour                   |                                          | Client      |
-| `/delete/clients`      | POST     | Supprimer une entrée                        |                                          | Client      |
+| `/update/clients`      | POST     | Mettre une entrée à jour                     |                                          | Client      |
+| `/delete/clients`      | POST     | Supprimer une entrée                         |                                          | Client      |
 
 ## Auteurs
 
-- Pierre Michel - [Miche1-Pierre](https://github.com/Miche1-Pierre)
-- Schmitt Arthur - [SchArthur](https://github.com/SchArthur)
-- Rémy Deiber - [Remy0011](https://github.com/Remy0011)
+- Thomas Joriatti - [Futura_Game](https://github.com/Futura-Game)
+- Donovan Pelletier - [donovanpelletier](https://github.com/donovanpelletier)
+- Matteo - [MT-TO](https://github.com/MT-TO)
 
 Stage réalisé dans le cadre d'un stage de 3 mois chez [Synapsia](https://synapsia.fr).

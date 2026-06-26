@@ -4,7 +4,7 @@ $projects = $data['userWorkProject'] ?? [];
 
 <div class="card" data-card="userWorkProject">
     <div class="card-container">
-        <h2>Projets sur lesquels vous avez travaillé récemment</h2>
+        <h2>Vos projets de travail récent</h2>
 
         <?php if (empty($projects)) : ?>
             <div class="table-empty">
@@ -14,7 +14,7 @@ $projects = $data['userWorkProject'] ?? [];
             <div class="table-container">
                 <table class="table">
                     <thead>
-                        <tr>
+                        <tr style="background-color: var(--color-primary);">
                             <th>#</th>
                             <th>Projets</th>
                             <th>Heures travaillées</th>

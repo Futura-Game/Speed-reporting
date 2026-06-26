@@ -22,11 +22,7 @@
     transition: var(--t);
 }
 
-.button.primary:hover {
-    background-color: var(--color-primary-t);
-}
-
-.button.primary.minimal {
+.button.primary.minimal, .button.secondary.minimal, .button.danger.minimal {
     display: inline-block;
     background-color: var(--bg-light);
     color: var(--text-light);
@@ -38,9 +34,8 @@
     transition: var(--t);
 }
 
-.button.primary.minimal:hover {
-    border-color: var(--color-primary-t);;
-    box-shadow: 0 0 5px 2px var(--status-offline);
+.button.primary.minimal:hover, .button.secondary.minimal:hover, .button.danger.minimal:hover {
+    box-shadow: 0 0 5px 2px #18009f;
 }
 
 /* Secondary */
@@ -56,25 +51,8 @@
     transition: var(--t);
 }
 
-.button.secondary:hover {
+.button.primary:hover, .button.secondary:hover, .button.danger:hover{
     background-color: var(--color-secondary-t);
-}
-
-.button.secondary.minimal {
-    display: inline-block;
-    background-color: var(--bg-light);
-    color: var(--text-light);
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: var(--radius);
-    transition: border-color var(--t);
-    border: 2px solid var(--color-secondary);
-    transition: var(--t);
-}
-
-.button.secondary.minimal:hover {
-    border-color: var(--color-secondary-t);
-    box-shadow: 0 0 5px 2px var(--status-offline);
 }
 
 /* Success */
@@ -124,27 +102,6 @@
     transition: var(--t);
 }
 
-.button.danger:hover {
-    background-color: var(--status-danger);
-}
-
-.button.danger.minimal {
-    display: inline-block;
-    background-color: var(--bg-light);
-    color: var(--text-light);
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: var(--radius);
-    transition: border-color var(--t);
-    border: 2px solid var(--status-danger-bg);
-    transition: var(--t);
-}
-
-.button.danger.minimal:hover {
-    border-color: var(--status-danger);
-    box-shadow: 0 0 5px 2px var(--status-offline);
-}
-
 .button.contrast {
     display: inline-block;
     background-color: var(--bg-light);
@@ -180,6 +137,10 @@
 
 .tag.danger {
     background-color: var(--status-danger);
+}
+
+.tag.paused {
+    background-color: var(--status-paused);
 }
 
 .tag.progress {

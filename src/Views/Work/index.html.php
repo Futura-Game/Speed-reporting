@@ -15,7 +15,6 @@ include_once __DIR__ . '/../partials/_breadcrumb.html.php';
 ?>
 
 <section class="content">
-    <h1>Horaires</h1>
     <?php
     if ($work_to_validate) {
         include __DIR__ . '/../partials/cards/_workToValidate.html.php';

@@ -14,7 +14,6 @@ include_once __DIR__ . '/../partials/_breadcrumb.html.php';
 ?>
 
 <section class="content">
-    <h1>Projets</h1>
     <div id="table-container">
         <?php
         include_once __DIR__ . '/../partials/tables/_project.html.php';

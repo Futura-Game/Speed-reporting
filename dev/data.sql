@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `table_work` (
   `work_day` int DEFAULT NULL,
   `work_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `work_description` varchar(255) DEFAULT NULL,
-  `work_status` enum('non_vailde','confirme','inactif', 'en_attente', 'en_cours_de_creation') NOT NULL,
+  `work_status` enum('non_valide','confirme','inactif', 'en_attente', 'en_cours_de_creation') NOT NULL,
   `work_project` int DEFAULT NULL,
   `work_user` int NOT NULL,
   PRIMARY KEY (`work_id`),

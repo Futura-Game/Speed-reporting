@@ -33,41 +33,53 @@ $role = AuthService::getRole()->getId();
                 <ul>
                     <li>
                         <a href="/">
-                            <i class="bx bx-home"></i>
+                            <img src="/Icone/Maison.png" alt="Maison" width="32" height="32">
                             <span class="text">Home</span>
                         </a>
                     </li>
                     <?php if ($role == 1): ?>
                         <li>
                             <a href="/heures">
-                                <i class="bx bx-briefcase-alt-2"></i>
+                                <img src="/Icone/Horaires.png" alt="Horaires" width="32" height="32">
                                 <span class="text">Horaires</span>
                             </a>
                         </li>
                         <li>
                             <a href="/projets">
-                                <i class="bx bx-file"></i>
+                                <img src="/Icone/Projet.png" alt="Projet" width="32" height="32">
                                 <span class="text">Projets</span>
                             </a>
                         </li>
                         <li>
                             <a href="/utilisateurs">
-                                <i class="bx bx-user"></i>
+                                <img src="/Icone/Utilisateur.png" alt="Utilisateur" width="32" height="32">
                                 <span class="text">Utilisateurs</span>
                             </a>
                         </li>
                         <li>
                             <a href="/clients">
-                                <i class='bx bx-buildings'></i>
+                                <img src="/Icone/Client.png" alt="Client" width="32" height="32">
                                 <span class="text">Clients</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/planning"> <!--ATTENTION A GERER L'ACCES -->
+                                <img src="/Icone/Planing.png" alt="Planning" width="32" height="32">
+                                <span class="text">Planning</span>
                             </a>
                         </li>
                     <?php endif; ?>
                     <?php if ($role == 2): ?>
                         <li>
-                            <a href="/mes-heures">
-                                <i class="bx bx-briefcase-alt-2"></i>
-                                <span class="text">Horaires</span>
+                            <a href="/mes-projets"> <!--ATTENTION A GERER L'ACCES -->
+                                <img src="/Icone/Projet.png" alt="Projet" width="32" height="32">
+                                <span class="text">Projets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/mon-planning"> <!--DEVIENDRA "MON PLANNING" --><!--ATTENTION A GERER L'ACCES -->
+                                <img src="/Icone/Planing.png" alt="Planning" width="32" height="32">
+                                <span class="text">Planning</span>
                             </a>
                         </li>
                     <?php endif; ?>
@@ -80,20 +92,14 @@ $role = AuthService::getRole()->getId();
             <p class="title">Compte</p>
             <ul>
                 <li>
-                    <a href="/deconnexion" class="ajax-link">
-                        <i class='bx bx-log-out' style='color:#e1051e'></i>
-                        <span class="text">Déconnexion</span>
-                    </a>
-                </li>
-                <li>
                     <a href="#" class="ajax-link" id="settings-button">
-                        <i class='bx bx-cog'></i>
+                        <img src="/Icone/Paramètre.png" alt="Paramètre" width="32" height="32">
                         <span class="text">Paramètres</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="ajax-link" id="help-button">
-                        <i class='bx bx-question-mark'></i>
+                        <img src="/Icone/Aide.png" alt="Aide" width="32" height="32">
                         <span class="text">Aide</span>
                     </a>
                 </li>

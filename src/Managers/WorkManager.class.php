@@ -104,7 +104,7 @@ class WorkManager extends BaseManager
      */
     public function getInCreationWork(int $userId)
     {
-        return $this->getWeekUserWork(userId: $userId, status: ['in_creation']);
+        return $this->getWeekUserWork(userId: $userId, status: ['en_cours_de_creation']);
     }
 
     /**
@@ -440,16 +440,14 @@ class WorkManager extends BaseManager
 
     /**
      * Compte le nombre de travaux à valider.
-     * Cette méthode compte le nombre de travaux
-     * dont le statut est 'en_attente', en tenant compte des filtres de recherche
-     * et des utilisateurs.
-     * @param array|null $params Paramètres de recherche optionnels (recherche par nom, prénom, projet, client).
+     * * @param array|null $params Paramètres de recherche optionnels.
      * @throws \Exception En cas d'erreur de base de données.
-     * 
-     * @return int Le nombre de travaux à valider.
+     * * @return int Le nombre de travaux à valider.
      */
     public function countToValidate(?array $params = null): int
     {
+        // CORRECTION : Ajout de la condition 'table_work.work_status = 'en_attente'' 
+        // directement dans le LEFT JOIN pour éviter de lier les heures inactives ou confirmées.
         $query = "SELECT COUNT(*) 
         FROM (
             SELECT work_user, work_week, work_year
@@ -461,6 +459,7 @@ class WorkManager extends BaseManager
         LEFT JOIN table_work ON unique_entries.work_user = table_work.work_user 
             AND unique_entries.work_week = table_work.work_week 
             AND unique_entries.work_year = table_work.work_year
+            AND table_work.work_status = 'en_attente'
         LEFT JOIN table_project ON table_work.work_project = table_project.project_id
         LEFT JOIN table_client ON table_project.project_client = table_client.client_id
         ";
@@ -476,9 +475,7 @@ class WorkManager extends BaseManager
 
         try {
             $stmt = $this->pdo->prepare($query);
-            $stmt->execute(
-                $params
-            );
+            $stmt->execute($params);
             return (int) $stmt->fetchColumn();
         } catch (\PDOException $e) {
             throw new \Exception("Erreur lors du comptage des travaux à valider : " . $e->getMessage());

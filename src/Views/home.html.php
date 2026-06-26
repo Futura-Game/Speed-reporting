@@ -19,24 +19,24 @@ include_once __DIR__ . '/partials/_breadcrumb.html.php';
 </div>
 
 <div class="input-menu">
+    <label>Volume hebdo <input type="checkbox" data-target="weekWork" checked></label>
+</div>
+
+<div class="input-menu">
     <label>En congés <input type="checkbox" data-target="haveBreakUser" checked></label>
 </div>
 */
 ?>
 
 <section class="content">
-    <h1>Home</h1>
 
     <!-- Card Menu -->
     <div class="card-settings">
-        <button id="toggleCardMenu" class="icon-button"><i class='bx bx-dots-vertical-rounded'></i></button>
+        <!--<button id="toggleCardMenu" class="icon-button"><i class='bx bx-dots-vertical-rounded'></i></button>-->
         <div id="cardMenu" class="card-menu hidden">
             <?php if (AuthService::isAdmin()) { ?>
                 <div class="input-menu">
                     <label>Heures à valider <input type="checkbox" data-target="workToValidate" checked></label>
-                </div>
-                <div class="input-menu">
-                    <label>Volume hebdo <input type="checkbox" data-target="weekWork" checked></label>
                 </div>
                 <div class="input-menu">
                     <label>Statuts projets <input type="checkbox" data-target="projectStatus" checked></label>
@@ -67,9 +67,9 @@ include_once __DIR__ . '/partials/_breadcrumb.html.php';
         if (isset($data['work_to_validate']) && $data['work_to_validate']) {
             require_once __DIR__ . '/partials/cards/_workToValidate.html.php';
         }
-        if (isset($data['weekWork_data']) && !empty($data['weekWork_data'])) {
+        /*if (isset($data['weekWork_data']) && !empty($data['weekWork_data'])) {
             require_once __DIR__ . '/partials/cards/_weekWork.html.php';
-        }
+        }*/
         if (isset($data['projectStatus_data']) && !empty($data['projectStatus_data'])) {
             require_once __DIR__ . '/partials/cards/_projectStatus.html.php';
         }

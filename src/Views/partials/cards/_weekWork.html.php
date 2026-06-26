@@ -2,8 +2,11 @@
 
 $weekWork_data = $data['weekWork_data'];
 
-$colorMax = [255, 127, 80];
-$colorMin = [63, 49, 44];
+// #007ae6 - Un bleu vif et lumineux
+$colorMax = [0, 122, 230]; 
+
+// #081DD9 - Un bleu royal très vif et saturé
+$colorMin = [8, 29, 217];
 
 // Find min and max total_hours
 $hours = array_column($weekWork_data, 'total_hours');

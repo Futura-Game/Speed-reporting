@@ -15,7 +15,6 @@ include_once __DIR__ . '/../partials/_breadcrumb.html.php';
 ?>
 
 <section class="content">
-    <h1>Horaires</h1>
     <?php include_once __DIR__ . '/../partials/calendar/_full.html.php'; ?>
 </section>
 

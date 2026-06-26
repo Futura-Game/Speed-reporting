@@ -208,7 +208,7 @@
     justify-content: center;
     cursor: pointer;
     z-index: 90;
-    background-color: var(--color-primary);
+    background-color: #007ae6;
     transition: var(--t);
 }
 
@@ -218,7 +218,7 @@
 }
 
 .menu-btn:hover {
-    background-color: var(--color-primary-t);
+    background-color: blue;
 }
 
 .menu-btn i {
